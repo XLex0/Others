@@ -6,11 +6,10 @@ from tkinter import messagebox, scrolledtext
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# Parámetros globales
 direcciones_virtuales = []
 paso_actual = 0
 cola_paginas = []
-politica_reemplazo = "FIFO"  # Valor por defecto
+politica_reemplazo = "FIFO"  
 
 # Función para iniciar la simulación
 def iniciar_simulacion():
@@ -36,15 +35,15 @@ def iniciar_simulacion():
     paso_actual = 0
     cola_paginas = []
     
-    # Cerrar la ventana de configuración y abrir la de simulación
+
     root.withdraw()
     iniciar_pantalla_simulacion()
 
 def traducir_direccion(virtual):
-    pagina = virtual // TAM_PAGINA  # Número de página
-    offset = virtual % TAM_PAGINA  # Offset dentro de la página
+    pagina = virtual // TAM_PAGINA  
+    offset = virtual % TAM_PAGINA  
     
-    if tabla_paginas[pagina] == -1:  # La página no está en RAM (page fault)
+    if tabla_paginas[pagina] == -1:  
         manejar_page_fault(pagina)
     
     marco = tabla_paginas[pagina]
@@ -62,7 +61,7 @@ def manejar_page_fault(pagina):
         
         tabla_paginas[pagina_reemplazada] = -1
     
-    # Cargar la nueva página en RAM
+
     nuevo_marco = len(marcos_en_ram)
     tabla_paginas[pagina] = nuevo_marco
     marcos_en_ram.append(pagina)
@@ -85,8 +84,8 @@ def actualizar_canvas():
     ax.plot([0, 1], [TAM_MEMORIA_FISICA, TAM_MEMORIA_FISICA], 'k', lw=2)
     ax.plot([0, 0], [0, TAM_MEMORIA_FISICA], 'k', lw=2)
     ax.plot([1, 1], [0, TAM_MEMORIA_FISICA], 'k', lw=2)
-    ax.set_xticks([])  # Eliminar marcas en el eje X
-    ax.set_yticks([])  # Eliminar marcas en el eje Y
+    ax.set_xticks([])  
+    ax.set_yticks([])  
     ax.set_title("Estado de la RAM")
     
     canvas.figure = fig
@@ -142,7 +141,7 @@ root = tk.Tk()
 root.title("Simulación de Paginación")
 root.geometry("300x250")
 
-# Entrada de parámetros
+
 tk.Label(root, text="Tamaño de Memoria Virtual (4-15):").pack()
 entrada_memoria_virtual = tk.Entry(root)
 entrada_memoria_virtual.pack()
@@ -153,7 +152,7 @@ entrada_memoria_fisica = tk.Entry(root)
 entrada_memoria_fisica.pack()
 entrada_memoria_fisica.insert(0, "4")
 
-# ComboBox para seleccionar política de reemplazo
+
 tk.Label(root, text="Política de Reemplazo:").pack()
 combo_politica = ttk.Combobox(root, values=["FIFO", "LRU"], state="readonly")
 combo_politica.pack()
