@@ -1,0 +1,936 @@
+classdef Reshape_To_ConcatLayer1178 < nnet.layer.Layer & nnet.layer.Formattable
+    % A custom layer auto-generated while importing an ONNX network.
+
+    %#codegen
+    %#ok<*PROPLC>
+    %#ok<*NBRAK>
+    %#ok<*INUSL>
+    %#ok<*VARARG>
+
+    properties (Learnable)
+    end
+
+    properties
+        ONNXParams         % An ONNXParameters object containing parameters used by this layer.
+    end
+
+    methods
+        function this = Reshape_To_ConcatLayer1178(name, onnxParams)
+            this.Name = name;
+            this.NumInputs = 4;
+            this.OutputNames = {'pdscore_boxx_boxy_bo'};
+            this.ONNXParams = onnxParams;
+        end
+
+        function [pdscore_boxx_boxy_bo] = predict(this, Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0)
+            if isdlarray(Conv2D_28__252_0)
+                Conv2D_28__252_0 = stripdims(Conv2D_28__252_0);
+            end
+            if isdlarray(Conv2D_29__249_0)
+                Conv2D_29__249_0 = stripdims(Conv2D_29__249_0);
+            end
+            if isdlarray(Conv2D_33__246_0)
+                Conv2D_33__246_0 = stripdims(Conv2D_33__246_0);
+            end
+            if isdlarray(Conv2D_34__243_0)
+                Conv2D_34__243_0 = stripdims(Conv2D_34__243_0);
+            end
+            Conv2D_28__252_0NumDims = 4;
+            Conv2D_29__249_0NumDims = 4;
+            Conv2D_33__246_0NumDims = 4;
+            Conv2D_34__243_0NumDims = 4;
+            onnxParams = this.ONNXParams;
+            [pdscore_boxx_boxy_bo, pdscore_boxx_boxy_boNumDims] = Reshape_To_ConcatFcn(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, Conv2D_28__252_0NumDims, Conv2D_29__249_0NumDims, Conv2D_33__246_0NumDims, Conv2D_34__243_0NumDims, onnxParams, 'Training', false, ...
+                'InputDataPermutation', {[4 1 2 3], [4 1 2 3], [4 1 2 3], [4 1 2 3], ['as-is'], ['as-is'], ['as-is'], ['as-is']}, ...
+                'OutputDataPermutation', {['as-is'], ['as-is']});
+            if any(cellfun(@(A)~isnumeric(A) && ~islogical(A), {pdscore_boxx_boxy_bo}))
+                fprintf('Runtime error in network. At least one output of custom layer ''%s'' is a non-numeric, non-logical value.\n', 'Reshape_To_ConcatLayer1178');
+                error(message('nnet_cnn_onnx:onnx:BadCustomLayerRuntimeOutput', 'Reshape_To_ConcatLayer1178'));
+            end
+            pdscore_boxx_boxy_bo = dlarray(single(pdscore_boxx_boxy_bo), repmat('U', 1, max(2, pdscore_boxx_boxy_boNumDims)));
+            if ~coder.target('MATLAB')
+                pdscore_boxx_boxy_bo = extractdata(pdscore_boxx_boxy_bo);
+            end
+        end
+
+        function [pdscore_boxx_boxy_bo] = forward(this, Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0)
+            if isdlarray(Conv2D_28__252_0)
+                Conv2D_28__252_0 = stripdims(Conv2D_28__252_0);
+            end
+            if isdlarray(Conv2D_29__249_0)
+                Conv2D_29__249_0 = stripdims(Conv2D_29__249_0);
+            end
+            if isdlarray(Conv2D_33__246_0)
+                Conv2D_33__246_0 = stripdims(Conv2D_33__246_0);
+            end
+            if isdlarray(Conv2D_34__243_0)
+                Conv2D_34__243_0 = stripdims(Conv2D_34__243_0);
+            end
+            Conv2D_28__252_0NumDims = 4;
+            Conv2D_29__249_0NumDims = 4;
+            Conv2D_33__246_0NumDims = 4;
+            Conv2D_34__243_0NumDims = 4;
+            onnxParams = this.ONNXParams;
+            [pdscore_boxx_boxy_bo, pdscore_boxx_boxy_boNumDims] = Reshape_To_ConcatFcn(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, Conv2D_28__252_0NumDims, Conv2D_29__249_0NumDims, Conv2D_33__246_0NumDims, Conv2D_34__243_0NumDims, onnxParams, 'Training', true, ...
+                'InputDataPermutation', {[4 1 2 3], [4 1 2 3], [4 1 2 3], [4 1 2 3], ['as-is'], ['as-is'], ['as-is'], ['as-is']}, ...
+                'OutputDataPermutation', {['as-is'], ['as-is']});
+            if any(cellfun(@(A)~isnumeric(A) && ~islogical(A), {pdscore_boxx_boxy_bo}))
+                fprintf('Runtime error in network. At least one output of custom layer ''%s'' is a non-numeric, non-logical value.\n', 'Reshape_To_ConcatLayer1178');
+                error(message('nnet_cnn_onnx:onnx:BadCustomLayerRuntimeOutput', 'Reshape_To_ConcatLayer1178'));
+            end
+            pdscore_boxx_boxy_bo = dlarray(single(pdscore_boxx_boxy_bo), repmat('U', 1, max(2, pdscore_boxx_boxy_boNumDims)));
+            if ~coder.target('MATLAB')
+                pdscore_boxx_boxy_bo = extractdata(pdscore_boxx_boxy_bo);
+            end
+        end
+    end
+end
+
+function [pdscore_boxx_boxy_bo, pdscore_boxx_boxy_boNumDims, state] = Reshape_To_ConcatFcn(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, Conv2D_28__252_0NumDims, Conv2D_29__249_0NumDims, Conv2D_33__246_0NumDims, Conv2D_34__243_0NumDims, params, varargin)
+%RESHAPE_TO_CONCATFCN Function implementing an imported ONNX network.
+%
+% THIS FILE WAS AUTO-GENERATED BY importONNXFunction.
+% ONNX Operator Set Version: 11
+%
+% Variable names in this function are taken from the original ONNX file.
+%
+% [PDSCORE_BOXX_BOXY_BO] = Reshape_To_ConcatFcn(CONV2D_28__252_0, CONV2D_29__249_0, CONV2D_33__246_0, CONV2D_34__243_0, PARAMS)
+%			- Evaluates the imported ONNX network RESHAPE_TO_CONCATFCN with input(s)
+%			CONV2D_28__252_0, CONV2D_29__249_0, CONV2D_33__246_0, CONV2D_34__243_0 and the imported network parameters in PARAMS. Returns
+%			network output(s) in PDSCORE_BOXX_BOXY_BO.
+%
+% [PDSCORE_BOXX_BOXY_BO, STATE] = Reshape_To_ConcatFcn(CONV2D_28__252_0, CONV2D_29__249_0, CONV2D_33__246_0, CONV2D_34__243_0, PARAMS)
+%			- Additionally returns state variables in STATE. When training,
+%			use this form and set TRAINING to true.
+%
+% [__] = Reshape_To_ConcatFcn(CONV2D_28__252_0, CONV2D_29__249_0, CONV2D_33__246_0, CONV2D_34__243_0, PARAMS, 'NAME1', VAL1, 'NAME2', VAL2, ...)
+%			- Specifies additional name-value pairs described below:
+%
+% 'Training'
+% 			Boolean indicating whether the network is being evaluated for
+%			prediction or training. If TRAINING is true, state variables
+%			will be updated.
+%
+% 'InputDataPermutation'
+%			'auto' - Automatically attempt to determine the permutation
+%			 between the dimensions of the input data and the dimensions of
+%			the ONNX model input. For example, the permutation from HWCN
+%			(MATLAB standard) to NCHW (ONNX standard) uses the vector
+%			[4 3 1 2]. See the documentation for IMPORTONNXFUNCTION for
+%			more information about automatic permutation.
+%
+%			'none' - Input(s) are passed in the ONNX model format. See 'Inputs'.
+%
+%			numeric vector - The permutation vector describing the
+%			transformation between input data dimensions and the expected
+%			ONNX input dimensions.%
+%			cell array - If the network has multiple inputs, each cell
+%			contains 'auto', 'none', or a numeric vector.
+%
+% 'OutputDataPermutation'
+%			'auto' - Automatically attempt to determine the permutation
+%			between the dimensions of the output and a conventional MATLAB
+%			dimension ordering. For example, the permutation from NC (ONNX
+%			standard) to CN (MATLAB standard) uses the vector [2 1]. See
+%			the documentation for IMPORTONNXFUNCTION for more information
+%			about automatic permutation.
+%
+%			'none' - Return output(s) as given by the ONNX model. See 'Outputs'.
+%
+%			numeric vector - The permutation vector describing the
+%			transformation between the ONNX output dimensions and the
+%			desired output dimensions.%
+%			cell array - If the network has multiple outputs, each cell
+%			contains 'auto', 'none' or a numeric vector.
+%
+% Inputs:
+% -------
+% CONV2D_28__252_0, CONV2D_29__249_0, CONV2D_33__246_0, CONV2D_34__243_0
+%			- Input(s) to the ONNX network.
+%			  The input size(s) expected by the ONNX file are:
+%				  CONV2D_28__252_0:		[Unknown, Unknown, Unknown, Unknown]				Type: FLOAT
+%				  CONV2D_29__249_0:		[Unknown, Unknown, Unknown, Unknown]				Type: FLOAT
+%				  CONV2D_33__246_0:		[Unknown, Unknown, Unknown, Unknown]				Type: FLOAT
+%				  CONV2D_34__243_0:		[Unknown, Unknown, Unknown, Unknown]				Type: FLOAT
+%			  By default, the function will try to permute the input(s)
+%			  into this dimension ordering. If the default is incorrect,
+%			  use the 'InputDataPermutation' argument to control the
+%			  permutation.
+%
+%
+% PARAMS	- Network parameters returned by 'importONNXFunction'.
+%
+%
+% Outputs:
+% --------
+% PDSCORE_BOXX_BOXY_BO
+%			- Output(s) of the ONNX network.
+%			  Without permutation, the size(s) of the outputs are:
+%				  PDSCORE_BOXX_BOXY_BO:		[N, 8]				Type: FLOAT
+%			  By default, the function will try to permute the output(s)
+%			  from this dimension ordering into a conventional MATLAB
+%			  ordering. If the default is incorrect, use the
+%			  'OutputDataPermutation' argument to control the permutation.
+%
+% STATE		- (Optional) State variables. When TRAINING is true, these will
+% 			  have been updated from the original values in PARAMS.State.
+%
+%
+%  See also importONNXFunction
+
+% Preprocess the input data and arguments:
+[Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, Training, outputDataPerms, anyDlarrayInputs] = preprocessInput(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, params, varargin{:});
+% Put all variables into a single struct to implement dynamic scoping:
+[Vars, NumDims] = packageVariables(params, {'Conv2D_28__252_0', 'Conv2D_29__249_0', 'Conv2D_33__246_0', 'Conv2D_34__243_0'}, {Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0}, [Conv2D_28__252_0NumDims Conv2D_29__249_0NumDims Conv2D_33__246_0NumDims Conv2D_34__243_0NumDims]);
+% Call the top-level graph function:
+[pdscore_boxx_boxy_bo, pdscore_boxx_boxy_boNumDims, state] = Reshape_To_ConcatGraph1166(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, NumDims.Conv2D_28__252_0, NumDims.Conv2D_29__249_0, NumDims.Conv2D_33__246_0, NumDims.Conv2D_34__243_0, Vars, NumDims, Training, params.State);
+% Postprocess the output data
+[pdscore_boxx_boxy_bo] = postprocessOutput(pdscore_boxx_boxy_bo, outputDataPerms, anyDlarrayInputs, Training, varargin{:});
+end
+
+function [pdscore_boxx_boxy_bo, pdscore_boxx_boxy_boNumDims1177, state] = Reshape_To_ConcatGraph1166(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, Conv2D_28__252_0NumDims1173, Conv2D_29__249_0NumDims1174, Conv2D_33__246_0NumDims1175, Conv2D_34__243_0NumDims1176, Vars, NumDims, Training, state)
+% Function implementing the graph 'Reshape_To_ConcatGraph1166'
+% Update Vars and NumDims from the graph's formal input parameters. Note that state variables are already in Vars.
+Vars.Conv2D_28__252_0 = Conv2D_28__252_0;
+NumDims.Conv2D_28__252_0 = Conv2D_28__252_0NumDims1173;
+Vars.Conv2D_29__249_0 = Conv2D_29__249_0;
+NumDims.Conv2D_29__249_0 = Conv2D_29__249_0NumDims1174;
+Vars.Conv2D_33__246_0 = Conv2D_33__246_0;
+NumDims.Conv2D_33__246_0 = Conv2D_33__246_0NumDims1175;
+Vars.Conv2D_34__243_0 = Conv2D_34__243_0;
+NumDims.Conv2D_34__243_0 = Conv2D_34__243_0NumDims1176;
+
+% Execute the operators:
+% Reshape:
+[shape, NumDims.model_1_model_reshap] = prepareReshapeArgs(Vars.Conv2D_28__252_0, Vars.const_fold_opt__694, NumDims.Conv2D_28__252_0, 0);
+Vars.model_1_model_reshap = reshape(Vars.Conv2D_28__252_0, shape{:});
+
+% Reshape:
+[shape, NumDims.model_1_model_resh_2] = prepareReshapeArgs(Vars.Conv2D_29__249_0, Vars.const_fold_opt__695, NumDims.Conv2D_29__249_0, 0);
+Vars.model_1_model_resh_2 = reshape(Vars.Conv2D_29__249_0, shape{:});
+
+% Reshape:
+[shape, NumDims.model_1_model_resh_1] = prepareReshapeArgs(Vars.Conv2D_33__246_0, Vars.const_fold_opt__694, NumDims.Conv2D_33__246_0, 0);
+Vars.model_1_model_resh_1 = reshape(Vars.Conv2D_33__246_0, shape{:});
+
+% Reshape:
+[shape, NumDims.model_1_model_resh_3] = prepareReshapeArgs(Vars.Conv2D_34__243_0, Vars.const_fold_opt__695, NumDims.Conv2D_34__243_0, 0);
+Vars.model_1_model_resh_3 = reshape(Vars.Conv2D_34__243_0, shape{:});
+
+% Concat:
+[Vars.classificators, NumDims.classificators] = onnxConcat(1, {Vars.model_1_model_resh_1, Vars.model_1_model_reshap}, [NumDims.model_1_model_resh_1, NumDims.model_1_model_reshap]);
+
+% Concat:
+[Vars.regressors, NumDims.regressors] = onnxConcat(1, {Vars.model_1_model_resh_3, Vars.model_1_model_resh_2}, [NumDims.model_1_model_resh_3, NumDims.model_1_model_resh_2]);
+
+% Gather:
+[Vars.onnx__Gather_3, NumDims.onnx__Gather_3] = onnxGather(Vars.classificators, Vars.onnx__Gather_2, 0, NumDims.classificators, NumDims.onnx__Gather_2);
+
+% Squeeze:
+[Vars.onnx__Div_7, NumDims.onnx__Div_7] = onnxSqueeze(Vars.regressors, Vars.SqueezeAxes1167, NumDims.regressors);
+
+% Gather:
+[Vars.onnx__Sigmoid_5, NumDims.onnx__Sigmoid_5] = onnxGather(Vars.onnx__Gather_3, Vars.onnx__Gather_2, 1, NumDims.onnx__Gather_3, NumDims.onnx__Gather_2);
+
+% Div:
+Vars.onnx__Add_9 = Vars.onnx__Div_7 ./ Vars.onnx__Div_8;
+NumDims.onnx__Add_9 = max(NumDims.onnx__Div_7, NumDims.onnx__Div_8);
+
+% Sigmoid:
+Vars.scores = sigmoid(Vars.onnx__Sigmoid_5);
+NumDims.scores = NumDims.onnx__Sigmoid_5;
+
+% Add:
+Vars.onnx__Slice_11 = Vars.onnx__Add_9 + Vars.onnx__Add_10;
+NumDims.onnx__Slice_11 = max(NumDims.onnx__Add_9, NumDims.onnx__Add_10);
+
+% Slice:
+[Indices, NumDims.onnx__Sub_16] = prepareSliceArgs(Vars.onnx__Slice_11, Vars.onnx__Slice_13, Vars.onnx__Slice_14_mod_4, Vars.onnx__Slice_12, Vars.onnx__Slice_12, NumDims.onnx__Slice_11);
+Vars.onnx__Sub_16 = subsref(Vars.onnx__Slice_11, Indices);
+
+% Slice:
+[Indices, NumDims.onnx__Mul_21] = prepareSliceArgs(Vars.onnx__Slice_11, Vars.onnx__Slice_14_mod_5, Vars.onnx__Slice_19, Vars.onnx__Slice_12, Vars.onnx__Slice_12, NumDims.onnx__Slice_11);
+Vars.onnx__Mul_21 = subsref(Vars.onnx__Slice_11, Indices);
+
+% Unsqueeze:
+[shape, NumDims.onnx__Unsqueeze_29] = prepareUnsqueezeArgs(Vars.scores, Vars.UnsqueezeAxes1168, NumDims.scores);
+Vars.onnx__Unsqueeze_29 = reshape(Vars.scores, shape);
+
+% Slice:
+[Indices, NumDims.onnx__Gather_46] = prepareSliceArgs(Vars.onnx__Slice_11, Vars.onnx__Slice_19, Vars.onnx__Slice_44, Vars.onnx__Slice_12, Vars.onnx__Slice_12, NumDims.onnx__Slice_11);
+Vars.onnx__Gather_46 = subsref(Vars.onnx__Slice_11, Indices);
+
+% Slice:
+[Indices, NumDims.onnx__Gather_52] = prepareSliceArgs(Vars.onnx__Slice_11, Vars.onnx__Slice_49, Vars.onnx__Slice_50, Vars.onnx__Slice_12, Vars.onnx__Slice_12, NumDims.onnx__Slice_11);
+Vars.onnx__Gather_52 = subsref(Vars.onnx__Slice_11, Indices);
+
+% Slice:
+[Indices, NumDims.onnx__Gather_60] = prepareSliceArgs(Vars.onnx__Slice_11, Vars.onnx__Slice_13, Vars.onnx__Slice_58, Vars.onnx__Slice_12, Vars.onnx__Slice_12, NumDims.onnx__Slice_11);
+Vars.onnx__Gather_60 = subsref(Vars.onnx__Slice_11, Indices);
+
+% Mul:
+Vars.onnx__Sub_23 = Vars.onnx__Mul_21 .* Vars.onnx__Mul_22;
+NumDims.onnx__Sub_23 = max(NumDims.onnx__Mul_21, NumDims.onnx__Mul_22);
+
+% Unsqueeze:
+[shape, NumDims.onnx__NonMaxSuppre_1] = prepareUnsqueezeArgs(Vars.onnx__Unsqueeze_29, Vars.UnsqueezeAxes1169, NumDims.onnx__Unsqueeze_29);
+Vars.onnx__NonMaxSuppre_1 = reshape(Vars.onnx__Unsqueeze_29, shape);
+
+% Sub:
+Vars.onnx__Concat_24 = Vars.onnx__Sub_16 - Vars.onnx__Sub_23;
+NumDims.onnx__Concat_24 = max(NumDims.onnx__Sub_16, NumDims.onnx__Sub_23);
+
+% Add:
+Vars.onnx__Concat_25 = Vars.onnx__Sub_16 + Vars.onnx__Sub_23;
+NumDims.onnx__Concat_25 = max(NumDims.onnx__Sub_16, NumDims.onnx__Sub_23);
+
+% Concat:
+[Vars.onnx__Cast_26, NumDims.onnx__Cast_26] = onnxConcat(1, {Vars.onnx__Concat_24, Vars.onnx__Concat_25}, [NumDims.onnx__Concat_24, NumDims.onnx__Concat_25]);
+
+% Unsqueeze:
+[shape, NumDims.onnx__NonMaxSuppress] = prepareUnsqueezeArgs(Vars.onnx__Cast_26, Vars.UnsqueezeAxes1170, NumDims.onnx__Cast_26);
+Vars.onnx__NonMaxSuppress = reshape(Vars.onnx__Cast_26, shape);
+
+% NonMaxSuppression:
+[Vars.onnx__Gather_33, NumDims.onnx__Gather_33] = onnxNonMaxSuppression(Vars.onnx__NonMaxSuppress, Vars.onnx__NonMaxSuppre_1, Vars.onnx__Slice_14_mod_2, Vars.onnx__NonMaxSuppre_2, 0, 0);
+
+% Gather:
+[Vars.onnx__Squeeze_35, NumDims.onnx__Squeeze_35] = onnxGather(Vars.onnx__Gather_33, Vars.onnx__Slice_14, 1, NumDims.onnx__Gather_33, NumDims.onnx__Slice_14);
+
+% Squeeze:
+[Vars.onnx__Slice_36, NumDims.onnx__Slice_36] = onnxSqueeze(Vars.onnx__Squeeze_35, Vars.SqueezeAxes1171, NumDims.onnx__Squeeze_35);
+
+% Slice:
+[Indices, NumDims.onnx__Gather_41] = prepareSliceArgs(Vars.onnx__Slice_36, Vars.onnx__Slice_13, Vars.onnx__Slice_14_mod_3, Vars.onnx__Slice_13, Vars.onnx__Slice_12, NumDims.onnx__Slice_36);
+Vars.onnx__Gather_41 = subsref(Vars.onnx__Slice_36, Indices);
+
+% Gather:
+[Vars.onnx__Concat_47, NumDims.onnx__Concat_47] = onnxGather(Vars.onnx__Gather_46, Vars.onnx__Gather_41, 0, NumDims.onnx__Gather_46, NumDims.onnx__Gather_41);
+
+% Gather:
+[Vars.onnx__Concat_53, NumDims.onnx__Concat_53] = onnxGather(Vars.onnx__Gather_52, Vars.onnx__Gather_41, 0, NumDims.onnx__Gather_52, NumDims.onnx__Gather_41);
+
+% Gather:
+[Vars.onnx__Unsqueeze_54, NumDims.onnx__Unsqueeze_54] = onnxGather(Vars.scores, Vars.onnx__Gather_41, 0, NumDims.scores, NumDims.onnx__Gather_41);
+
+% Gather:
+[Vars.onnx__Concat_61, NumDims.onnx__Concat_61] = onnxGather(Vars.onnx__Gather_60, Vars.onnx__Gather_41, 0, NumDims.onnx__Gather_60, NumDims.onnx__Gather_41);
+
+% Unsqueeze:
+[shape, NumDims.onnx__Concat_55] = prepareUnsqueezeArgs(Vars.onnx__Unsqueeze_54, Vars.UnsqueezeAxes1172, NumDims.onnx__Unsqueeze_54);
+Vars.onnx__Concat_55 = reshape(Vars.onnx__Unsqueeze_54, shape);
+
+% Concat:
+[Vars.pdscore_boxx_boxy_bo, NumDims.pdscore_boxx_boxy_bo] = onnxConcat(1, {Vars.onnx__Concat_55, Vars.onnx__Concat_61, Vars.onnx__Concat_47, Vars.onnx__Concat_53}, [NumDims.onnx__Concat_55, NumDims.onnx__Concat_61, NumDims.onnx__Concat_47, NumDims.onnx__Concat_53]);
+
+% Set graph output arguments from Vars and NumDims:
+pdscore_boxx_boxy_bo = Vars.pdscore_boxx_boxy_bo;
+pdscore_boxx_boxy_boNumDims1177 = NumDims.pdscore_boxx_boxy_bo;
+% Set output state from Vars:
+state = updateStruct(state, Vars);
+end
+
+function [inputDataPerms, outputDataPerms, Training] = parseInputs(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, numDataOutputs, params, varargin)
+% Function to validate inputs to Reshape_To_ConcatFcn:
+p = inputParser;
+isValidArrayInput = @(x)isnumeric(x) || isstring(x);
+isValidONNXParameters = @(x)isa(x, 'ONNXParameters');
+addRequired(p, 'Conv2D_28__252_0', isValidArrayInput);
+addRequired(p, 'Conv2D_29__249_0', isValidArrayInput);
+addRequired(p, 'Conv2D_33__246_0', isValidArrayInput);
+addRequired(p, 'Conv2D_34__243_0', isValidArrayInput);
+addRequired(p, 'params', isValidONNXParameters);
+addParameter(p, 'InputDataPermutation', 'auto');
+addParameter(p, 'OutputDataPermutation', 'auto');
+addParameter(p, 'Training', false);
+parse(p, Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, params, varargin{:});
+inputDataPerms = p.Results.InputDataPermutation;
+outputDataPerms = p.Results.OutputDataPermutation;
+Training = p.Results.Training;
+if isnumeric(inputDataPerms)
+    inputDataPerms = {inputDataPerms};
+end
+if isstring(inputDataPerms) && isscalar(inputDataPerms) || ischar(inputDataPerms)
+    inputDataPerms = repmat({inputDataPerms},1,4);
+end
+if isnumeric(outputDataPerms)
+    outputDataPerms = {outputDataPerms};
+end
+if isstring(outputDataPerms) && isscalar(outputDataPerms) || ischar(outputDataPerms)
+    outputDataPerms = repmat({outputDataPerms},1,numDataOutputs);
+end
+end
+
+function [Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, Training, outputDataPerms, anyDlarrayInputs] = preprocessInput(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, params, varargin)
+% Parse input arguments
+[inputDataPerms, outputDataPerms, Training] = parseInputs(Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0, 1, params, varargin{:});
+anyDlarrayInputs = any(cellfun(@(x)isa(x, 'dlarray'), {Conv2D_28__252_0, Conv2D_29__249_0, Conv2D_33__246_0, Conv2D_34__243_0}));
+% Make the input variables into unlabelled dlarrays:
+Conv2D_28__252_0 = makeUnlabeledDlarray(Conv2D_28__252_0);
+Conv2D_29__249_0 = makeUnlabeledDlarray(Conv2D_29__249_0);
+Conv2D_33__246_0 = makeUnlabeledDlarray(Conv2D_33__246_0);
+Conv2D_34__243_0 = makeUnlabeledDlarray(Conv2D_34__243_0);
+% Permute inputs if requested:
+Conv2D_28__252_0 = permuteInputVar(Conv2D_28__252_0, inputDataPerms{1}, 4);
+Conv2D_29__249_0 = permuteInputVar(Conv2D_29__249_0, inputDataPerms{2}, 4);
+Conv2D_33__246_0 = permuteInputVar(Conv2D_33__246_0, inputDataPerms{3}, 4);
+Conv2D_34__243_0 = permuteInputVar(Conv2D_34__243_0, inputDataPerms{4}, 4);
+end
+
+function [pdscore_boxx_boxy_bo] = postprocessOutput(pdscore_boxx_boxy_bo, outputDataPerms, anyDlarrayInputs, Training, varargin)
+% Set output type:
+if ~anyDlarrayInputs && ~Training
+    if isdlarray(pdscore_boxx_boxy_bo)
+        pdscore_boxx_boxy_bo = extractdata(pdscore_boxx_boxy_bo);
+    end
+end
+% Permute outputs if requested:
+pdscore_boxx_boxy_bo = permuteOutputVar(pdscore_boxx_boxy_bo, outputDataPerms{1}, 2);
+end
+
+
+%% dlarray functions implementing ONNX operators:
+
+function [Y, numDimsY] = onnxConcat(ONNXAxis, XCell, numDimsXArray)
+% Concatentation that treats all empties the same. Necessary because
+% dlarray.cat does not allow, for example, cat(1, 1x1, 1x0) because the
+% second dimension sizes do not match.
+
+% Copyright 2021 The MathWorks, Inc.
+
+numDimsY = numDimsXArray(1);
+XCell(cellfun(@isempty, XCell)) = [];
+if isempty(XCell)
+    Y = dlarray([]);
+else
+    if ONNXAxis<0
+        ONNXAxis = ONNXAxis + numDimsY;
+    end
+    DLTAxis = numDimsY - ONNXAxis;
+    Y = cat(DLTAxis, XCell{:});
+end
+end
+
+function [Y, numDimsY] = onnxGather(X, ONNXIdx, ONNXAxis, numDimsX, numDimsIdx)
+% Function implementing the ONNX Gather operator
+
+% In ONNX, 'Gather' first indexes into dimension ONNXAxis of data, using
+% the contents of ONNXIdx as the indices. Then, it reshapes the ONNXAxis
+% into the shape of ONNXIdx.
+%   Example 1:
+% Suppose data has shape [2 3 4 5], ONNXIdx has shape [6 7], and axis=1.
+% The result has shape [2 6 7 4 5].
+%   Example 2:
+% Suppose data has shape [2 3 4 5], ONNXIdx has shape [6], and axis=1.
+% The result has shape [2 6 4 5].
+%   Example 3:
+% Suppose data has shape [2 3 4 5], ONNXIdx has shape [] (a scalar), and axis=1.
+% The result has shape [2 4 5].
+%
+% Since we're using reverse indexing relative to ONNX, in this function
+% data and ONNXIdx both have reversed dimension ordering.
+
+% Copyright 2020-2021 The MathWorks, Inc.
+
+numDimsY = numDimsIdx + (numDimsX - 1);
+if isempty(X)
+    Y = X;
+    return;
+end
+% (1) First, do the subsref part of Gather
+if ONNXAxis<0
+    ONNXAxis = ONNXAxis + numDimsX;                                 % Axis can be negative. Convert it to its positive equivalent.
+end
+dltAxis = numDimsX - ONNXAxis;                                      % Convert axis to DLT. ONNXAxis is origin 0 and we index from the end
+ONNXIdx(ONNXIdx<0) = ONNXIdx(ONNXIdx<0) + size(X, dltAxis);         % ONNXIdx can have negative components. Make them positive.
+dltIdx  = extractdata(ONNXIdx) + 1;                                 % ONNXIdx is origin-0 in ONNX, so add 1 to get dltIdx
+% Use subsref to index into data
+Indices.subs = repmat({':'}, 1, numDimsX);
+Indices.subs{dltAxis} = dltIdx(:);                                  % Index as a column to ensure the output is 1-D in the indexed dimension (for now).
+Indices.type = '()';
+Y = subsref(X, Indices);
+% (2) Now do the reshaping part of Gather
+shape = size(Y, 1:numDimsX);
+if numDimsIdx == 0
+    % Delete the indexed dimension
+    shape(dltAxis) = [];
+elseif numDimsIdx > 1
+    % Reshape the indexed dimension into the shape of ONNXIdx
+    shape = [shape(1:dltAxis-1) size(ONNXIdx, 1:numDimsIdx) shape(dltAxis+1:end)];
+end
+% Extend the shape to 2D so it's valid MATLAB
+if numel(shape) < 2
+    shape = [shape ones(1,2-numel(shape))];
+end
+Y = reshape(Y, shape);
+end
+
+function [Y, numDimsY] = onnxNonMaxSuppression(boxes, scores, max_output_boxes_per_class, ...
+    iou_threshold, score_threshold, center_point_box)
+% Implements the ONNX NonMaxSuppression operator
+
+% Returns a 3-by-P array where each column contains [batchIdx; classIdx,
+% boxIdx]. This is the reverse of ONNX NonMaxSuppression which returns a
+% P-by-3 array where each row contains: [batchIdx, classIdx, boxIdx].
+
+% Copyright 2020-2021 The MathWorks, Inc.
+
+if isempty(boxes)
+    Y = dlarray([]);
+    numDimsY = 2;
+    return
+end
+
+% If either of the first two inputs is a gpuArray, make sure both of them
+% are.
+if isgpuarray(boxes) && ~isgpuarray(scores)
+    scores = gpuArray(scores);
+end
+if isgpuarray(scores) && ~isgpuarray(boxes)
+    boxes = gpuArray(boxes);
+end
+
+% Extract data from input dlarray objects.
+boxes = iExtractData(boxes);
+scores = iExtractData(scores);
+max_output_boxes_per_class = iExtractData(max_output_boxes_per_class);
+iou_threshold = iExtractData(iou_threshold);
+score_threshold = iExtractData(score_threshold);
+center_point_box = iExtractData(center_point_box);
+% The ONNX NMS operator's box input is B-by-S-by-4 and the score input is
+% B-by-C-by-S. This function receives data in the reverse order.
+[numCoords, numBoxes, numBatches]         = size(boxes);
+[numScores, numClasses, numBatchesScores] = size(scores);
+assert(numCoords == 4);
+assert(numBatches == numBatchesScores);
+assert(numBoxes == numScores);
+% Permute boxes to M-by-4-by-numBatches
+boxes = permute(boxes,[2 1 3]);
+if center_point_box
+    % The center point box format is [xcenter, ycenter, w, h]. Convert to
+    % [x1 y1 w h].
+    bboxes = boxes;
+    bboxes(:,1:2,:) = boxes(:,1:2,:) - bboxes(:,[3 4],:)./2;
+else
+    % ONNX box format is [y1 x1 y2 x2] in spatial coordinate and define
+    % any diagonal pair. The order of the pairs is not defined. Compute the
+    % min and max coordinates.
+    xmin = min(boxes(:,[2 4],:),[],2);
+    xmax = max(boxes(:,[2 4],:),[],2);
+    ymin = min(boxes(:,[1 3],:),[],2);
+    ymax = max(boxes(:,[1 3],:),[],2);
+    % Convert min and max coordinates to [x y w h].
+    bboxes = [xmin ymin xmax-xmin ymax-ymin];
+end
+
+% Perform NMS across batches.
+selectedIndex = cell(numClasses,numBatches,1);
+for ii = 1:numBatches
+    % Create the full index list and select boxes to process for current
+    % batch.
+    idx = (1:numBoxes)';
+
+    % Indices are returned as gpuArray if input boxes are on the GPU.
+    if isgpuarray(boxes)
+        idx = gpuArray(idx);
+    end
+
+    b = bboxes(:,:,ii);
+    s = scores(:,:,ii);
+
+    % Process boxes for each class.
+    for jj = 1:numClasses
+        % Keep boxes above score threshold.
+        keep = s(:,jj) > score_threshold;
+        boxesAfterScoreThreshold = b(keep,:);
+        scoresAfterScoreThreshold = s(keep,jj);
+
+        % Track original indices of boxes that were kept.
+        idx1 = idx(keep);
+
+        % selectStrongestBbox only supports valid box inputs with width and
+        % height > 0. However, ONNX NMS allows these types of boxes and it
+        % does not suppress them in its output. Here, we remove invalid
+        % boxes, apply selectStrongestBbox, and then add the invalid boxes
+        % back to mimic ONNX NMS output.
+        %
+        % Select valid boxes and keep track of valid box indices.
+        valid = all(boxesAfterScoreThreshold(:,[3 4],:) > 0, 2);
+        validInd = find(valid);
+        validBoxes = boxesAfterScoreThreshold(valid,:);
+        validScores = scoresAfterScoreThreshold(valid,:);
+
+        if isempty(validBoxes)
+            selectedIndex{jj,ii} = zeros(0,0);
+            continue
+        end
+
+        [~,~,index] = selectStrongestBbox(validBoxes,validScores,...
+            'RatioType','Union',...
+            'OverlapThreshold',iou_threshold,...
+            'NumStrongest',max_output_boxes_per_class);
+
+        % Append invalid indices to the output of selectStrongestBbox.
+        invalidInd = find(~valid);
+        index = [validInd(index); invalidInd];
+
+        % Reorder indices by score.
+        [~, ord] = sort(scoresAfterScoreThreshold(index),'descend');
+        index = index(ord);
+        % Get index into original input boxes before score threshold.
+        index = idx1(index);
+        % Pack indices as M1-by-3 matrices and subtract 1 to return 0-based
+        % indices.
+        selectedIndex{jj,ii} = [repmat([ii jj],numel(index),1) index] - 1;
+    end
+end
+% Return indices in a 3-by-numSelectedBoxes.
+Y = dlarray(vertcat(selectedIndex{:})');
+numDimsY = 2;
+
+    function x = iExtractData(x)
+        if isa(x,'dlarray')
+            x = extractdata(x);
+        end
+    end
+end
+
+
+function [Y, numDimsY] = onnxSqueeze(X, ONNXAxes, numDimsX)
+% Implements the ONNX Squeeze operator
+
+% Copyright 2020 The MathWorks, Inc.
+
+if numDimsX == 0
+    Y = X;
+    numDimsY = numDimsX;
+else
+    % Find the new ONNX shape
+    curOShape = size(X, numDimsX:-1:1);
+    if isempty(ONNXAxes)
+        newOShape = curOShape(curOShape ~= 1);
+    else
+        ONNXAxes(ONNXAxes<0) = ONNXAxes(ONNXAxes<0) + numDimsX;
+        newOShape = curOShape;
+        newOShape(ONNXAxes+1) = [];
+    end
+    % Get numDimsY from ONNX shape
+    numDimsY  = numel(newOShape);
+    newMShape = [fliplr(newOShape) ones(1, 2-numDimsY)];    % Append 1's to shape if numDims<2
+    Y         = reshape(X, newMShape);
+end
+end
+
+function [DLTShape, numDimsY] = prepareReshapeArgs(X, ONNXShape, numDimsX, allowzero)
+% Prepares arguments for implementing the ONNX Reshape operator
+
+%   Copyright 2020-2024 The MathWorks, Inc.
+
+ONNXShape = flip(extractdata(ONNXShape));            % First flip the shape to make it correspond to the dimensions of X.
+% In ONNX, 0 means "unchanged" if allowzero is false, and -1 means "infer". In DLT, there is no
+% "unchanged", and [] means "infer".
+DLTShape = num2cell(ONNXShape);                      % Make a cell array so we can include [].
+% Replace zeros with the actual size if allowzero is false
+if any(ONNXShape==0) && allowzero==0
+    i0 = find(ONNXShape==0);
+    DLTShape(i0) = num2cell(size(X, numDimsX - numel(ONNXShape) + i0));  % right-align the shape vector and dims
+end
+if any(ONNXShape == -1)
+    % Replace -1 with []
+    i = ONNXShape == -1;
+    DLTShape{i} = [];
+end
+if numel(DLTShape)==1
+    DLTShape = [DLTShape 1];
+end
+numDimsY = numel(ONNXShape);
+end
+
+function [S, numDimsY] = prepareSliceArgs(X, Starts, Ends, Axes, Steps, numDimsX)
+% Prepares arguments for implementing the ONNX Slice operator
+
+%   Copyright 2020 The MathWorks, Inc.
+
+% Starts, Ends and Axes are all origin 0. Axes refer to the ONNX dimension
+% ordering, but X uses the reverse, DLT ordering. Starts, Ends, Axes, and
+% Steps correspond positionally. Axes and Steps may be omitted, with
+% defaults described in the ONNX spec.
+
+% Set default Axes and Steps if not supplied
+if isempty(Axes)
+    Axes = 0:numDimsX-1;   % All axes
+end
+Axes(Axes<0) = Axes(Axes<0) + numDimsX; % Handle negative Axes.
+if isempty(Steps)
+    Steps = ones(1, numel(Starts));
+end
+% Init all dims to :
+S.subs = repmat({':'}, 1, numDimsX);
+S.type = '()';
+% Set Starts and Ends for each axis
+for i = 1:numel(Axes)
+    DLTDim = numDimsX - Axes(i);                                               % The DLT dim is the reverse of the ONNX dim.
+    % "If a negative value is passed for any of the start or end indices,
+    % it represents number of elements before the end of that dimension."
+    if Starts(i) < 0
+        Starts(i) = size(X,DLTDim) + Starts(i);
+    end
+    if Ends(i) < 0
+        Ends(i) = max(-1, size(X,DLTDim) + Ends(i));                        % The -1 case is when we're slicing backward and want to include 0.
+    end
+    % "If the value passed to start or end is larger than the n (the number
+    % of elements in this dimension), it represents n."
+    if Starts(i) > size(X,DLTDim)
+        Starts(i) = size(X,DLTDim);
+    end
+    if Ends(i) > size(X,DLTDim)
+        Ends(i) = size(X,DLTDim);
+    end
+    if Steps(i) > 0
+        S.subs{DLTDim} = 1 + (Starts(i) : Steps(i) : Ends(i)-1);            % 1 + (Origin 0 indexing with end index excluded)
+    else
+        S.subs{DLTDim} = 1 + (Starts(i) : Steps(i) : Ends(i)+1);            % 1 + (Origin 0 indexing with end index excluded)
+    end
+end
+numDimsY = numDimsX;
+end
+
+function [newShape, numDimsY] = prepareUnsqueezeArgs(X, ONNXAxes, numDimsX)
+% Prepares arguments for implementing the ONNX Unsqueeze operator
+
+%   Copyright 2020-2021 The MathWorks, Inc.
+
+numDimsY = numDimsX + numel(ONNXAxes);
+ONNXAxes = extractdata(ONNXAxes);
+ONNXAxes(ONNXAxes<0) = ONNXAxes(ONNXAxes<0) + numDimsY;
+ONNXAxes = sort(ONNXAxes);                                              % increasing order
+if numDimsY == 1
+    newShape = size(X);
+else
+    DLTAxes  = flip(numDimsY - ONNXAxes);                                  % increasing order
+    newShape = ones(1, numDimsY);
+    posToSet = setdiff(1:numDimsY, DLTAxes, 'stable');
+    newShape(posToSet) = size(X, 1:numel(posToSet));
+end
+end
+
+%% Utility functions:
+
+function s = appendStructs(varargin)
+% s = appendStructs(s1, s2,...). Assign all fields in s1, s2,... into s.
+
+%   Copyright 2020 The MathWorks, Inc.
+
+if isempty(varargin)
+    s = struct;
+else
+    s = varargin{1};
+    for i = 2:numel(varargin)
+        fromstr = varargin{i};
+        fs = fieldnames(fromstr);
+        for j = 1:numel(fs)
+            s.(fs{j}) = fromstr.(fs{j});
+        end
+    end
+end
+end
+
+function checkInputSize(inputShape, expectedShape, inputName)
+
+%   Copyright 2020-2021 The MathWorks, Inc.
+
+if numel(expectedShape)==0
+    % The input is a scalar
+    if ~isequal(inputShape, [1 1])
+        inputSizeStr = makeSizeString(inputShape);
+        error(message('nnet_cnn_onnx:onnx:InputNeedsResize',inputName, "[1,1]", inputSizeStr));
+    end
+elseif numel(expectedShape)==1
+    % The input is a vector
+    if ~shapeIsColumnVector(inputShape) || ~iSizesMatch({inputShape(1)}, expectedShape)
+        expectedShape{2} = 1;
+        expectedSizeStr = makeSizeString(expectedShape);
+        inputSizeStr = makeSizeString(inputShape);
+        error(message('nnet_cnn_onnx:onnx:InputNeedsResize',inputName, expectedSizeStr, inputSizeStr));
+    end
+else
+    % The input has 2 dimensions or more
+
+    % The input dimensions have been reversed; flip them back to compare to the
+    % expected ONNX shape.
+    inputShape = fliplr(inputShape);
+
+    % If the expected shape has fewer dims than the input shape, error.
+    if numel(expectedShape) < numel(inputShape)
+        expectedSizeStr = strjoin(["[", strjoin(string(expectedShape), ","), "]"], "");
+        error(message('nnet_cnn_onnx:onnx:InputHasGreaterNDims', inputName, expectedSizeStr));
+    end
+
+    % Prepad the input shape with trailing ones up to the number of elements in
+    % expectedShape
+    inputShape = num2cell([ones(1, numel(expectedShape) - length(inputShape)) inputShape]);
+
+    % Find the number of variable size dimensions in the expected shape
+    numVariableInputs = sum(cellfun(@(x) isa(x, 'char') || isa(x, 'string'), expectedShape));
+
+    % Find the number of input dimensions that are not in the expected shape
+    % and cannot be represented by a variable dimension
+    nonMatchingInputDims = setdiff(string(inputShape), string(expectedShape));
+    numNonMatchingInputDims  = numel(nonMatchingInputDims) - numVariableInputs;
+
+    expectedSizeStr = makeSizeString(expectedShape);
+    inputSizeStr = makeSizeString(inputShape);
+    if numNonMatchingInputDims == 0 && ~iSizesMatch(inputShape, expectedShape)
+        % The actual and expected input dimensions match, but in
+        % a different order. The input needs to be permuted.
+        error(message('nnet_cnn_onnx:onnx:InputNeedsPermute',inputName, expectedSizeStr, inputSizeStr));
+    elseif numNonMatchingInputDims > 0
+        % The actual and expected input sizes do not match.
+        error(message('nnet_cnn_onnx:onnx:InputNeedsResize',inputName, expectedSizeStr, inputSizeStr));
+    end
+end
+end
+
+function doesMatch = iSizesMatch(inputShape, expectedShape)
+% Check whether the input and expected shapes match, in order.
+% Size elements match if (1) the elements are equal, or (2) the expected
+% size element is a variable (represented by a character vector or string)
+doesMatch = true;
+for i=1:numel(inputShape)
+    if ~(isequal(inputShape{i},expectedShape{i}) || ischar(expectedShape{i}) || isstring(expectedShape{i}))
+        doesMatch = false;
+        return
+    end
+end
+end
+
+function sizeStr = makeSizeString(shape)
+sizeStr = strjoin(["[", strjoin(string(shape), ","), "]"], "");
+end
+
+function isVec = shapeIsColumnVector(shape)
+if numel(shape) == 2 && shape(2) == 1
+    isVec = true;
+else
+    isVec = false;
+end
+end
+function X = makeUnlabeledDlarray(X)
+% Make numeric X into an unlabelled dlarray
+
+%   Copyright 2020-2021 The MathWorks, Inc.
+
+if isa(X, 'dlarray')
+    X = stripdims(X);
+elseif isnumeric(X)
+    if isinteger(X)
+        % Make ints double so they can combine with anything without
+        % reducing precision
+        X = double(X);
+    end
+    X = dlarray(X);
+end
+end
+
+function [Vars, NumDims] = packageVariables(params, inputNames, inputValues, inputNumDims)
+
+%   Copyright 2020 The MathWorks, Inc.
+
+% inputNames, inputValues are cell arrays. inputRanks is a numeric vector.
+Vars = appendStructs(params.Learnables, params.Nonlearnables, params.State);
+NumDims = params.NumDimensions;
+% Add graph inputs
+for i = 1:numel(inputNames)
+    Vars.(inputNames{i}) = inputValues{i};
+    NumDims.(inputNames{i}) = inputNumDims(i);
+end
+end
+
+function X = permuteInputVar(X, userDataPerm, onnxNDims)
+
+%   Copyright 2020-2021 The MathWorks, Inc.
+% Returns reverse-ONNX ordering
+if onnxNDims == 0
+    return;
+elseif onnxNDims == 1 && isvector(X)
+    X = X(:);
+    return;
+elseif isnumeric(userDataPerm)
+    % Permute into reverse ONNX ordering
+    if numel(userDataPerm) ~= onnxNDims
+        error(message('nnet_cnn_onnx:onnx:InputPermutationSize', numel(userDataPerm), onnxNDims));
+    end
+    perm = fliplr(userDataPerm);
+elseif isequal(userDataPerm, 'auto') && onnxNDims == 4
+    % Permute MATLAB HWCN to reverse onnx (WHCN)
+    perm = [2 1 3 4];
+elseif isequal(userDataPerm, 'as-is')
+    % Do not permute the input
+    perm = 1:ndims(X);
+else
+    % userDataPerm is either 'none' or 'auto' with no default, which means
+    % it's already in onnx ordering, so just make it reverse onnx
+    perm = max(2,onnxNDims):-1:1;
+end
+X = permute(X, perm);
+end
+
+function Y = permuteOutputVar(Y, userDataPerm, onnxNDims)
+
+%   Copyright 2020-2021 The MathWorks, Inc.
+switch onnxNDims
+    case 0
+        perm = [];
+    case 1
+        if isnumeric(userDataPerm)
+            % Use the user's permutation because Y is a column vector which
+            % already matches ONNX.
+            perm = userDataPerm;
+        elseif isequal(userDataPerm, 'auto')
+            % Treat the 1D onnx vector as a 2D column and transpose it
+            perm = [2 1];
+        else
+            % userDataPerm is 'none'. Leave Y alone because it already
+            % matches onnx.
+            perm = [];
+        end
+    otherwise
+        % ndims >= 2
+        if isnumeric(userDataPerm)
+            % Use the inverse of the user's permutation. This is not just the
+            % flip of the permutation vector.
+            perm = onnxNDims + 1 - userDataPerm;
+        elseif isequal(userDataPerm, 'auto')
+            if onnxNDims == 2
+                % Permute reverse ONNX CN to DLT CN (do nothing)
+                perm = [];
+            elseif onnxNDims == 4
+                % Permute reverse onnx (WHCN) to MATLAB HWCN
+                perm = [2 1 3 4];
+            else
+                % User wants the output in ONNX ordering, so just reverse it from
+                % reverse onnx
+                perm = onnxNDims:-1:1;
+            end
+        elseif isequal(userDataPerm, 'as-is')
+            % Do not permute the input
+            perm = 1:ndims(Y);
+        else
+            % userDataPerm is 'none', so just make it reverse onnx
+            perm = onnxNDims:-1:1;
+        end
+end
+if ~isempty(perm)
+    Y = permute(Y, perm);
+end
+end
+
+function s = updateStruct(s, t)
+% Set all existing fields in s from fields in t, ignoring extra fields in
+% t.
+%   Copyright 2020 The MathWorks, Inc.
+
+for name = transpose(fieldnames(s))
+    s.(name{1}) = t.(name{1});
+end
+end
