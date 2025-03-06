@@ -1,0 +1,21 @@
+function [cutF, xyzF, coordF]= post_process_landmark(cut, xyz, score, type, coord)
+    score_threshold=0.8;
+    
+    num_images = length(cut);
+
+    xyzF = cell(num_images, 1);
+    cutF = []
+    coordF  = cell(num_images, 1);
+
+    for i = 1:long
+
+        if score{i}>score_threshold
+            xyzF{end+1} = xyz{i};
+            cutF = [cutF; cut[i]];
+            coordF{end+1}= 
+            
+        end 
+    end
+
+end
+

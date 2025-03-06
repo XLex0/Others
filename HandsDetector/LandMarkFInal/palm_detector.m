@@ -1,19 +1,32 @@
+    frame = imread("image/test3.jpg");
 
-img = imread('image/test5.jpg');
-[image, imageInput, image_height, image_width] = pre_process_palm(img);
+    % Procesar la imagen
+    [image, imageInput] = pre_process_palm(frame);
 
-% lista de posibles cajas:
-% forma: score, box_x, box_y, box_size, kp0X, kp0Y, kp2X, kp2Y
-boxes = process_palm(imageInput);
+    % Obtener las posibles cajas (boxes) de la detección
+    boxes = process_palm(imageInput);
 
-[center0, center2]=post_process(boxes,image_height, image_width);
+    % Obtener los centros de los puntos clave
+    hands = post_process_palm(image, boxes);
+
+    if ~isempty(hands)
+         [image, coord, cut]= draw_palm(image,hands);
+         disp(coord);
+        if ~isempty(cut)
+            [cut_processed,sizes]=pre_process_landmark(cut);
+            [xyz, score, type]= process_landmarks(cut_processed);
+
+            [cut, xyz, coord, type]=post_process_landmark(cut, xyz, score, type, coord);
+
+            finimg = draw_landmark(image,cut, xyz, coord);
+            imshow(finimg);
+            clear imageInput boxes frame hands cut_processed  score;
+        end
+    end
+
+    imshow(image);
 
 
 
-image = insertShape(image, 'FilledCircle', [center0, 5], 'Color', 'red', 'LineWidth', 2);
 
-image = insertShape(image, 'FilledCircle', [center2, 5], 'Color', 'blue', 'LineWidth', 2);
-
-
-% Mostrar la imagen con las detecciones
-imshow(image);
+  

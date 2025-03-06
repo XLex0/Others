@@ -1,10 +1,7 @@
-function [originalImage, imageInput, image_height, image_width] = pre_process_palm(originalImage)
+function [originalImage, imageInput] = pre_process_palm(frame)
     % Cargar la imagen desde la ruta proporcionada
     
-
-    % Obtener las dimensiones de la imagen original
-    image_height = size(originalImage, 1);
-    image_width = size(originalImage, 2);
+     originalImage= frame;
 
     % Redimensionar manteniendo la proporción
     imageResized = imresize(originalImage, [192, 192]);
