@@ -11,7 +11,7 @@
 
     if ~isempty(hands)
          [image, coord, cut]= draw_palm(image,hands);
-         disp(coord);
+
         if ~isempty(cut)
             [cut_processed,sizes]=pre_process_landmark(cut);
             [xyz, score, type]= process_landmarks(cut_processed);
@@ -19,12 +19,12 @@
             [cut, xyz, coord, type]=post_process_landmark(cut, xyz, score, type, coord);
 
             finimg = draw_landmark(image,cut, xyz, coord);
-            imshow(finimg);
-            clear imageInput boxes frame hands cut_processed  score;
+
+            clear imageInput boxes frame hands cut_processed cut score;
         end
     end
 
-    imshow(image);
+    imshow(finimg);
 
 
 

@@ -49,7 +49,7 @@ function [image, coords, cut] = draw_palm(img, hands)
     
         % Dibujar el rectángulo como un polígono
         polygon_coords = [p1(1), p1(2), p2(1), p2(2), p3(1), p3(2), p4(1), p4(2)];
-        img = insertShape(img, 'polygon', polygon_coords, 'Color', 'red', 'LineWidth', 2);
+        %img = insertShape(img, 'polygon', polygon_coords, 'Color', 'red', 'LineWidth', 2);
 
         coords = [coords; x1, y1, cx, cy, degree, width, height];
         rec = cut_img(img, polygon_coords,degree); 

@@ -1,5 +1,5 @@
 function [cutF, xyzF, coordF, typeF] = post_process_landmark(cut, xyz, score, type, coord)
-    score_threshold = 0.8;
+    score_threshold = 0.3;
 
     num_images = length(cut);
 
@@ -17,8 +17,6 @@ function [cutF, xyzF, coordF, typeF] = post_process_landmark(cut, xyz, score, ty
             typeF{end+1} = type{i};
             cutF = [cutF; cut(i)];
 
-            disp("hola");
-             disp(coord(:, i));
             coordF = [coordF; coord(i, :)];  % Concatenamos la columna de coord
         end 
 

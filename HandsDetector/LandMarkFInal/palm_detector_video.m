@@ -15,12 +15,27 @@ while true
     boxes = process_palm(imageInput);
     clear imageInput;
     % Obtener los centros de los puntos clave
-    hands = post_process(image, boxes);
+    hands = post_process_palm(image, boxes);
 
     if ~isempty(hands)
-         image= draw_palm(image,hands);
+     [image, coord, cut]= draw_palm(image,hands);
+
+        if ~isempty(cut)
+            [cut_processed,sizes]=pre_process_landmark(cut);
+            [xyz, score, type]= process_landmarks(cut_processed);
+
+            [cut, xyz, coord, type]=post_process_landmark(cut, xyz, score, type, coord);
+
+            finimg = draw_landmark(image,cut, xyz, coord);
+
+            clear imageInput boxes frame hands cut_processed cut score;
+         else
+            finimg=frame;
+        end
+     else
+            finimg=frame;
     end
-    imshow(image);
+    imshow(finimg);
 
     key = get(gcf, 'CurrentKey'); % Obtener la tecla presionada
     if strcmp(key, 'escape') % Si la tecla es ESC
